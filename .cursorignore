@@ -1,0 +1,44 @@
+# Cursor 忽略配置
+# 确保 CodeBuddy 配置优先级最高
+
+# 忽略缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# 忽略虚拟环境（但保留 venv/bin/python 的引用）
+# venv/  <-- 不忽略 venv，因为 Cursor 需要访问它
+
+# 忽略测试结果
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# 忽略 IDE 配置（使用 .codebuddy 和 .vscode）
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 忽略日志
+*.log
+logs/
+
+# 忽略数据库
+*.db
+*.sqlite
+*.sqlite3
+
+# 忽略临时文件
+*.tmp
+.DS_Store
+Thumbs.db

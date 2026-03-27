@@ -1,0 +1,10 @@
+{
+    "model": "LongCat-Flash-Thinking",
+    "name": "longcat",
+    "base_url": "https://api.longcat.chat/openai",
+    "api_key": "ak_24x7Xc6Vc2YC2Uw7212bw4pt3Eg8W",
+    "protocol": "openai",
+    "thought_chain_model": false,
+    "multimodal": false,
+    "extra": {}
+}

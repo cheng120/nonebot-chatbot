@@ -1,0 +1,16 @@
+{
+	"venvPath": "/Users/cheng/Desktop/document/cheng/nonebot-chatbot",
+	"venv": "venv",
+	"pythonVersion": "3.13",
+	"pythonPlatform": "Darwin",
+	"executionEnvironments": [
+		{
+			"root": "/Users/cheng/Desktop/document/cheng/nonebot-chatbot",
+			"pythonVersion": "3.13",
+			"extraPaths": [
+				"/Users/cheng/Desktop/document/cheng/nonebot-chatbot/venv/lib/python3.13/site-packages"
+			]
+		}
+	]
+}
+

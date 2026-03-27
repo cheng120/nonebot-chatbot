@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .biggest {
+            width: 1250px;
+            background: linear-gradient(to right, #0f2027, #203a43, #0f2027);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 25px 25px 25px 25px;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            margin: 0px 0px 30px 0px;
+        }
+        /* @font-face {
+            font-family: 'SanJiHuaChaoTi-Zhong-2';
+            src: url('../fonts/SanJiHuaChaoTi-Zhong-2.ttf') format('truetype');
+        } */
+        @font-face {
+            font-family: 'SanJiHuaChaoTi-Zhong-2';
+            src: url('SanJiHuaChaoTi-Zhong-2.ttf') format('truetype');
+        }
+        body{
+            font-family: 'SanJiHuaChaoTi-Zhong-2';
+        }
+        .box {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .content{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(248, 248, 255,0.9);
+            box-shadow: 0px 15px 25px rgba(220, 220, 220, 0.5);
+            display: flex;
+            justify-content: center;
+            margin: 0px 0px 50px 0px;
+            align-items: center;
+        }
+        p{
+            margin: 5px;
+        }
+        .title{
+            justify-content: flex-start;
+            display: flex !important;
+            align-items: center;
+            width: 100%;
+            margin: 0px 0px 10px 0px;
+        }
+        .title-span{
+            color: azure;font-size: 25px;
+            border: rgb(163,131,92) solid 1px;
+            background-color: rgb(187,159,94);
+            padding: 10px 10px 10px 10px;
+            border-radius: 20px 0 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="biggest">
+        <div class="container">
+            <div class="box">
+                <img src="{{roleimg}}" style="width: 654px;height: 648px;">
+                <div style="display: flex; flex-direction: column;">
+                    <div style="position: absolute; top: 0; right: 10px;display: flex;flex-direction: column;align-items: center;">
+                        <span style="color: rgb(187,159,94);font-size: 25px;">鸣潮WIKI</span>
+                        <span style="color: rgb(220,220,220);">wuthering waves</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column;margin: 0px 0px 100px 0px;">
+                        <span style="color: rgb(248,248,255); font-size: 60px;">{{rolename}}</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <span style="color: rgb(248,248,255); font-size: 45px;">{{roledescriptiontitle}}</span>
+                        <span style="color: rgb(190,190,190); font-size: 30px;">{{roledescription}}</span>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="title">
+            <span class="title-span">武器推荐</span>
+        </div>
+        <div class="content">
+            {{weapons_recommended}}
+        </div>
+        <div class="title">
+            <span class="title-span">声骸推荐</span>
+        </div>
+        <div class="content">
+            {{echo_recommended}}
+        </div>
+        <div class="title">
+            <span class="title-span">配队推荐</span>
+        </div>
+        <div class="content">
+            {{team_recommended}}
+        </div>
+        <div class="title">
+            <span class="title-span">加点推荐</span>
+        </div>
+        <div class="content">
+            {{skll_recommended}}
+        </div>
+    </div>
+</body>

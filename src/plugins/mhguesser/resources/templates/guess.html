@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 15px;
+            line-height: 1.6;
+            position: relative;
+            max-width: {{ width }}px;
+            text-align: center;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("{{ guessed_monster.image }}");
+            background-size: {{ width }}px auto;
+            background-position: center center;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            z-index: -1;
+        }
+        table {
+            margin: 0 auto;
+        }
+        /* 体型比较特殊样式 */
+        .size-higher td:nth-child(2)::after {
+            content: " (偏大)";
+            color: #0277bd;
+            font-weight: bold;
+        }
+        .size-lower td:nth-child(2)::after {
+            content: " (偏小)";
+            color: #ff8f00;
+            font-weight: bold;
+        }
+        .size-same td:nth-child(2)::after {
+            content: " ✓";
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        /* 发售时间比较样式 */
+        .debut-earlier td:nth-child(2)::after {
+            content: " (偏早)";
+            color: #0277bd;
+            font-weight: bold;
+        }
+        .debut-later td:nth-child(2)::after {
+            content: " (偏晚)";
+            color: #ff8f00;
+            font-weight: bold;
+        }
+        .debut-same td:nth-child(2)::after {
+            content: " ✓";
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        .guess-title{
+            font-weight:bold;
+            font-size: 1.3em;
+            margin-bottom:10px;
+        }
+        .match-row,.size-same,.debut-same { background-color: rgba(232, 245, 233, 0.5) !important; }
+        .mismatch-row { background-color: rgba(255, 235, 238, 0.5) !important; }
+        .size-higher,.debut-earlier { background-color: rgba(227, 242, 253, 0.5) !important; }
+        .size-lower,.debut-later { background-color: rgba(255, 243, 205, 0.5) !important; }
+        .attr-match {
+            background-color: #81c784;
+            padding: 2px 5px;
+            border-radius: 4px;
+            color: white;
+        }
+        .attempts-warning {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .monster-icon {
+            display: inline-block;
+            height: 5em;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="guess-title">
+        当前猜测: {{ guessed_monster.name }}
+        <img src="{{ guessed_monster.iconUrl }}" class="monster-icon">
+    </div>
+    <table>
+        <tr class="{{ 'match-row' if comparison.baseId else 'mismatch-row' }}">
+            <td width="40%">原种编号</td>
+            <td>{{ guessed_monster.baseId }}</td>
+        </tr>
+        <tr class="{{ 'match-row' if comparison.variants else 'mismatch-row' }}">
+            <td>原种衍生种数量</td>
+            <td>{{ guessed_monster.variants }}</td>
+        </tr>
+        <tr class="{{ 'match-row' if comparison.variantType else 'mismatch-row' }}">
+            <td>衍生种类</td>
+            <td>{{ guessed_monster.variantType }}</td>
+        </tr>
+        <tr class="debut-{{ comparison.debut_order }}">
+            <td>初登场作品</td>
+            <td>{{ guessed_monster.debut }}</td>
+        </tr>
+        <tr class="{{ 'match-row' if comparison.species else 'mismatch-row' }}">
+            <td>怪物种族</td>
+            <td>{{ guessed_monster.species }}</td>
+        </tr>
+        <tr class="size-{{ comparison.size }}">
+            <td>尺寸</td>
+            <td>{{ guessed_monster.size }}</td>
+        </tr>
+        <tr class="{{ 'match-row' if comparison.attributes.common else 'mismatch-row' }}">
+            <td>属性/异常</td>
+            <td>
+                {% for attr in guessed_monster.attributes.split('/') %}
+                    {% if attr in comparison.attributes.common %}
+                        <span class="attr-match">{{ attr }}</span>
+                    {% else %}
+                        {{ attr }}
+                    {% endif %}
+                    {% if not loop.last %} {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+    <div style="margin-top:15px;" class="{{ 'attempts-warning' if attempts_left <= 3 else '' }}">
+        剩余尝试次数: {{ attempts_left }}
+    </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @font-face {
+            font-family: 'SanJiHuaChaoTi-Zhong-2';
+            src: url('../fonts/SanJiHuaChaoTi-Zhong-2.ttf') format('truetype');
+        }
+        body{
+            font-family: 'SanJiHuaChaoTi-Zhong-2';
+        }
+        .biggest {
+            width: 1250px;
+            background: linear-gradient(to right, #0f2027, #203a43, #0f2027);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 25px 25px 25px 25px;
+        }
+        .img-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .img-body {
+            width: 512px;
+            height: 512px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .content{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(248, 248, 255,0.9);
+            box-shadow: 0px 15px 25px rgba(220, 220, 220, 0.5);
+            display: flex;
+            justify-content: center;
+            margin: 0px 0px 50px 0px;
+            font-size: 25px;
+            align-items: center;
+        }
+        td {
+            /* border: 1px solid red; */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="biggest">
+        <div class="img-content">
+            <div class="img-body">
+                <img src="{{enemyimg}}" alt="" style="width: 256px;height: 256px;">
+                <span style="font-size: 40px;margin: 15px 0px 0px 0px;color: rgb(248, 248, 255);">{{name}}</span>
+            </div>
+        </div>
+        <div style="color: rgba(248, 248, 255,0.8);font-size: 30px;width: 1024px;">
+            <em>
+                {{identity}}
+            </em>
+        </div>
+        <div style="margin: 0px 0px 50px 0px;color: rgb(248, 248, 255);font-size: 35px;width: 1024px;">
+            {{appraise}}
+        </div>
+        <div class="content">
+                {{diaoluowu}}
+        </div>
+        <div style="width: 100%;background-color: rgba(248, 248, 255,0.9);box-shadow: 0px 15px 25px rgba(220, 220, 220, 0.5);font-size: 25px;">
+            {{datatabledata}}
+        </div>
+    </div>
+</body>

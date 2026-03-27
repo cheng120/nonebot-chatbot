@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RotateY Example</title>
+    <style>
+        .biggest {
+            width: 1250px;
+            /* height: 100vh; */
+            background: linear-gradient(to right, #0f2027, #203a43, #0f2027);
+            display: flex;
+            flex-direction: column;
+            /* justify-content: space-around; */
+            align-items: center;
+            padding: 25px 25px 25px 25px;
+        }
+        .container {
+            /* 设置透视视角 */
+            /* perspective: 1000px; */
+            width: 100%;
+            height: 100%;
+        }
+        @font-face {
+            font-family: 'SanJiHuaChaoTi-Zhong-2';
+            src: url('../fonts/SanJiHuaChaoTi-Zhong-2.ttf') format('truetype');
+        }
+        .box {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        body{
+            font-family: 'SanJiHuaChaoTi-Zhong-2';
+        }
+        .content{
+            width: 100%;
+            height: 100%;
+            /* backdrop-filter: blur(50px); */
+            background-color: rgba(248, 248, 255,0.9);
+            box-shadow: 0px 15px 25px rgba(220, 220, 220, 0.5);
+            display: flex;
+            justify-content: center;
+            margin: 0px 0px 50px 0px;
+            font-size: 35px;
+        }
+        .table{
+            width: 100%;
+        }
+        td{
+            width: 25%;
+        }
+        p{
+            margin: 15px;
+        }
+        .content table td strong span{
+            font-size: inherit !important;
+        }
+        .content table td p span{
+            font-size: inherit !important;
+        }
+        .title{
+            justify-content: flex-start;
+            display: flex !important;
+            align-items: center;
+            width: 100%;
+            margin: 0px 0px 10px 0px;
+        }
+        .title-span{
+            color: azure;font-size: 50px;
+            border: rgb(163,131,92) solid 1px;
+            background-color: rgb(187,159,94);
+            padding: 10px 10px 10px 10px;
+            border-radius: 20px 0 20px 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="biggest">
+    <div class="container">
+        <div class="box">
+            <img src="{{roleimg}}" style="width: 654px;height: 648px;">
+            <div style="display: flex; flex-direction: column;">
+                <div style="position: absolute; top: 0; right: 10px;display: flex;flex-direction: column;align-items: center;">
+                    <span style="color: rgb(187,159,94);font-size: 25px;">鸣潮WIKI</span>
+                    <span style="color: rgb(220,220,220);">wuthering waves</span>
+                </div>
+                <div style="display: flex; flex-direction: column;margin: 0px 0px 100px 0px;">
+                    <span style="color: rgb(248,248,255); font-size: 60px;">{{title}}</span>
+                    <span style="color: rgb(163,131,92); font-size: 55px;">{{roleenname}}</span>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <span style="color: rgb(248,248,255); font-size: 45px;">{{roleDescriptiontitle}}</span>
+                    <span style="color: rgb(250,250,250); font-size: 30px;">{{roleDescription}}</span>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div class="title">
+        <span class="title-span">战斗风格</span>
+    </div>
+    <div class="content">
+        <table class="table">
+            <tr>
+                <td>身份</td>
+                <td>{{identity}}</td>
+                <td>所属</td>
+                <td>{{affiliation}}</td>
+            </tr>
+            <tr>
+                <td>属性</td>
+                <td>{{attributevalue}}</td>
+                <td>武器</td>
+                <td>{{weaponvalue}}</td>
+            </tr>
+            <tr>
+                <td>出生</td>
+                <td>{{birthplacevalue}}</td>
+                <td>性别</td>
+                <td>{{gendervalue}}</td>
+            </tr>
+            <tr>
+                <td>中文CV</td>
+                <td>{{zhcv}}</td>
+                <td>英文CV</td>
+                <td>{{encv}}</td>
+            </tr>
+            <tr>
+                <td>日文CV</td>
+                <td>{{jpcv}}</td>
+                <td>韩文CV</td>
+                <td>{{kocv}}</td>
+            </tr>
+            <tr>
+                <td>特殊料理</td>
+                <td>{{specialcuisine}}</td>
+                <td>实装版本</td>
+                <td>{{version}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="title">
+        <span class="title-span">战斗风格</span>
+    </div>
+    <div class="content">
+        <table class="table">
+            <tr>
+                <td>满突破</td>
+                <td>满突破</td>
+                <td>{{promotion}}</td>
+                <td>{{promotionvalue}}</td>
+            </tr>
+            <tr>
+                <td>基础生命</td>
+                <td>{{baselife}}</td>
+                <td>暴击伤害</td>
+                <td>{{criticaldamage}}</td>
+            </tr>
+            <tr>
+                <td>基础攻击</td>
+                <td>{{basicattack}}</td>
+                <td>{{bonus}}</td>
+                <td>{{bonusvalue}}</td>
+            </tr>
+            <tr>
+                <td>基础防御</td>
+                <td>{{basicdefense}}</td>
+                <td>最大共鸣能量</td>
+                <td>{{energy}}</td>
+            </tr>
+            <tr>
+                <td>暴击率</td>
+                <td>{{criticalstrikechance}}</td>
+                <td>{{injurycategory}}</td>
+                <td>0%</td>
+            </tr>
+        </table>
+    </div>
+    <div class="title">
+        <span class="title-span">战斗风格</span>
+    </div>
+    <div class="content">
+        {{fighting_style_content}}
+    </div>
+</div>
+</body>

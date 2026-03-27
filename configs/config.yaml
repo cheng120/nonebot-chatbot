@@ -1,0 +1,121 @@
+driver: ~fastapi+~httpx+~websockets
+log:
+  level: INFO
+  console: true
+  file: true
+  file_path: ./logs/bot.log
+  file_rotation: 1 day
+  file_retention: 7 days
+message_log:
+  enabled: true
+  log_to_file: true
+  log_to_database: true
+  file_path: ./logs/messages.log
+  level: INFO
+adapters:
+- name: OneBot V11
+  api_root: null
+  access_token: ''
+  websocket:
+    url: ws://127.0.0.1:13001/
+    access_token: ''
+database:
+  type: sqlite
+  sqlite:
+    path: ./data/bot.db
+  mysql:
+    host: localhost
+    port: 3306
+    user: root
+    password: ''
+    database: nonebot_chatbot
+    charset: utf8mb4
+plugins:
+  dir: ./src/plugins
+  auto_reload: false
+  use_config_file: true
+  enabled:
+  - src.plugins.uninfo
+  - src.plugins.alconna
+  - src.plugins.hello
+  - src.plugins.jrrp
+  - src.plugins.image
+  - src.plugins.coc
+  - src.plugins.migrate_plugin
+  - src.plugins.mhstart_fix
+  - src.plugins.mhguesser
+  - src.plugins.whateat_pic
+  - src.plugins.memes_api
+  - src.plugins.pokemonle
+  - src.plugins.epicfree
+  - src.plugins.jrrp3
+  - src.plugins.anans_sketchbook
+  - src.plugins.who_is_spy
+  - src.plugins.WWwiki
+  - src.plugins.dorodoro
+  - src.plugins.shindan
+  - src.plugins.xiuxian_2
+  - src.plugins.rollpig
+  - src.plugins.bilichat
+  - src.plugins.suggarchat
+  - src.plugins.poker
+  - src.plugins.fishing2
+  - src.plugins.omikuji
+  disabled: null
+nonebot_plugin_orm:
+  alembic_startup_check: true
+retry:
+  enabled: true
+  max_attempts: 3
+  interval: 1.0
+status:
+  enabled: true
+  check_interval: 60
+manosaba_memes:
+  enabled: true
+onebot_v11_use_base64: true
+anan:
+  font_file: resources/font.ttf
+  text_wrap_algorithm: original
+  baseimage_mapping:
+    普通: resources/BaseImages/base.png
+  baseimage_file: resources/BaseImages/base.png
+  text_box_topleft:
+  - 119
+  - 450
+  image_box_bottomright:
+  - 398
+  - 625
+  base_overlay_file: resources/BaseImages/base_overlay.png
+  use_base_overlay: true
+  convert_all_to_anan: false
+  max_len_of_long_text: 150
+memes_api:
+  memes_api_timeout: 10
+  enabled: true
+uninfo:
+  enabled: true
+alconna:
+  enabled: true
+mhguesser:
+  enabled: true
+whateat_pic:
+  enabled: true
+pokemonle:
+  enabled: true
+  pokemonle_max_attempts: 10
+  pokemonle_gens:
+  - 1
+  - 2
+  - 3
+  pokemonle_cheat: false
+epicfree:
+  enabled: true
+jrrp3:
+  enabled: true
+who_is_spy:
+  enabled: true
+WWwiki:
+  enabled: true
+dorodoro:
+  shindanmaker_cookie: ''

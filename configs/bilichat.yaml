@@ -1,0 +1,123 @@
+analyze:
+    cd_time: 120
+    column: true
+    dynamic: true
+    video: true
+api:
+    api_health_check_interval: 120
+    browser_shot_quality: 75
+    local_api_config:
+        api_access_token: ''
+        api_path: bilichatapi
+        api_sub_dynamic_limit: 720/hour
+        api_sub_live_limit: 1800/hour
+        enable: false
+    request_api:
+    -   api: https://api.example.com
+        enable: false
+        note: ''
+        token: ''
+        weight: 1
+nonebot:
+    block: false
+    cmd_add_sub:
+    - 订阅
+    - 关注
+    cmd_at_all:
+    - 全体成员
+    - at全体
+    cmd_check_login:
+    - 查看登录账号
+    cmd_check_sub:
+    - 查看
+    - 查看订阅
+    cmd_checkdynamic:
+    - 查看动态
+    cmd_dynamic:
+    - 动态通知
+    - 动态订阅
+    cmd_fetch:
+    - 获取内容
+    - 解析内容
+    cmd_live:
+    - 直播通知
+    - 直播订阅
+    cmd_login_qrcode:
+    - 扫码登录
+    cmd_logout:
+    - 登出账号
+    cmd_modify_cfg:
+    - 修改配置
+    cmd_remove_sub:
+    - 退订
+    - 取关
+    cmd_reset_sub:
+    - 重置
+    - 重置配置
+    cmd_start: ''
+    command_to_me: false
+    enable_self: false
+    fallback: true
+    only_self: false
+    only_to_me: false
+subs:
+    dynamic_interval: 300
+    live_interval: 60
+    push_delay: 3
+    use_rich_media: true
+    users:
+    -   id: QQClient_type1_740627193
+        info:
+            adapter: OneBot V11
+            member: null
+            operator: null
+            platform: null
+            scene:
+                avatar: https://p.qlogo.cn/gh/740627193/740627193/
+                id: '740627193'
+                name: 毛皇亚太地区粉丝总群
+                parent: null
+                type: 1
+            scope: QQClient
+            self_id: '1876259825'
+            user:
+                avatar: http://q1.qlogo.cn/g?b=qq&nk=1010460162&s=640
+                gender: male
+                id: '1010460162'
+                name: 程
+                nick: 黄瓜铁阴阳
+        subscribes:
+        -   dynamic:
+                DYNAMIC_TYPE_AD: IGNORE
+                DYNAMIC_TYPE_APPLET: PUSH
+                DYNAMIC_TYPE_ARTICLE: PUSH
+                DYNAMIC_TYPE_AV: PUSH
+                DYNAMIC_TYPE_BANNER: IGNORE
+                DYNAMIC_TYPE_COMMON_SQUARE: PUSH
+                DYNAMIC_TYPE_COMMON_VERTICAL: PUSH
+                DYNAMIC_TYPE_COURSES: PUSH
+                DYNAMIC_TYPE_COURSES_BATCH: PUSH
+                DYNAMIC_TYPE_COURSES_SEASON: PUSH
+                DYNAMIC_TYPE_DRAW: PUSH
+                DYNAMIC_TYPE_FORWARD: PUSH
+                DYNAMIC_TYPE_LIVE: IGNORE
+                DYNAMIC_TYPE_LIVE_RCMD: IGNORE
+                DYNAMIC_TYPE_MEDIALIST: PUSH
+                DYNAMIC_TYPE_MUSIC: PUSH
+                DYNAMIC_TYPE_NONE: PUSH
+                DYNAMIC_TYPE_PGC: PUSH
+                DYNAMIC_TYPE_SUBSCRIPTION: PUSH
+                DYNAMIC_TYPE_SUBSCRIPTION_NEW: PUSH
+                DYNAMIC_TYPE_UGC_SEASON: PUSH
+                DYNAMIC_TYPE_WORD: PUSH
+            live: PUSH
+            nickname: ''
+            note: ''
+            uid: 4361518
+            uname: zzsl
+version: 6.5.0
+webui:
+    api_path: bilichatwebui
+    enable: true
+    jwt_secret_key: aBlxcYI5q3IOx6VT4eHGx84jVaYCHH8ejJsYNO3RFRg
+    otp_secret_key: ZZUUQYBJCO26SKUPENWVWASOSLNQYO5O

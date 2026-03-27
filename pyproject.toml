@@ -1,0 +1,148 @@
+[project]
+name = "nonebot-chatbot"
+version = "0.1.0"
+description = "基于NoneBot2的通用聊天机器人框架，支持OneBot V11协议，提供完整的插件系统、数据库管理和状态监控功能"
+readme = "README.md"
+requires-python = ">=3.9,<4.0"
+license = {text = "MIT"}
+authors = [
+    {name = "NoneBot Chatbot Team", email = "nonebot-chatbot@example.com"}
+]
+keywords = [
+    "nonebot",
+    "nonebot2",
+    "chatbot",
+    "onebot",
+    "qq-bot",
+    "ntqq"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Communications :: Chat",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "nonebot2[fastapi,httpx,websockets]>=2.0.0",
+    "nonebot-adapter-onebot>=2.0.0",
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.23.0",
+    "sqlalchemy>=2.0.0",
+    "aiosqlite>=0.19.0",
+    "pymysql>=1.1.0",
+    "greenlet>=2.0.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0",
+    "loguru>=0.7.0",
+    "websockets>=11.0",
+    "httpx>=0.24.0",
+    "setuptools>=65.0.0",  # 构建工具依赖
+    "wheel>=0.40.0",  # 构建工具依赖
+	"nonebot-plugin-poker",
+	"nonebot-plugin-fishing2",
+	"nonebot-plugin-omikuji",
+    "nonebot-plugin-epicfree>=0.2.12",
+    "nonebot-plugin-jrrp3>=0.1.0",
+    "nonebot-plugin-anans-sketchbook>=0.1.0",
+    "nonebot-plugin-alconna>=0.45.0",
+    "nonebot-plugin-dorodoro>=1.4.0",
+    "sketchbook>=0.1.0",
+    "nonebot-plugin-shindan>=0.6.5",
+    "nonebot-plugin-rollpig",
+    "nonebot-plugin-suggarchat[openai]",
+    "nonebot-plugin-bilichat",
+    "bilichat-request",
+]
+
+[project.scripts]
+nb-add-plugin = "src.cli.add_plugin:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.11.0",
+    "pyright>=1.1.0",
+    "ruff>=0.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-username/nonebot-chatbot"
+Documentation = "https://github.com/your-username/nonebot-chatbot#readme"
+Repository = "https://github.com/your-username/nonebot-chatbot"
+Issues = "https://github.com/your-username/nonebot-chatbot/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.nonebot]
+plugin_dirs = ["src/plugins"]
+builtin_plugins = []
+
+[tool.nonebot.adapters]
+"@local" = []
+
+[tool.nonebot.plugins]
+"@local" = []
+nonebot-plugin-epicfree = ["nonebot_plugin_epicfree"]
+nonebot-plugin-jrrp3 = ["nonebot_plugin_jrrp3"]
+nonebot-plugin-anans-sketchbook = ["nonebot_plugin_anans_sketchbook"]
+nonebot-plugin-alconna = ["nonebot_plugin_alconna"]
+nonebot-plugin-dorodoro = ["nonebot_plugin_dorodoro"]
+nonebot-plugin-shindan = ["nonebot_plugin_shindan"]
+nonebot-plugin-xiuxian-2 = ["nonebot_plugin_xiuxian_2"]
+nonebot-plugin-rollpig = ["nonebot_plugin_rollpig"]
+nonebot-plugin-suggarchat = ["nonebot_plugin_suggarchat"]
+nonebot-plugin-bilichat = ["nonebot_plugin_bilichat"]
+nonebot-plugin-poker = ["nonebot_plugin_poker"]
+nonebot-plugin-fishing2 = ["nonebot_plugin_fishing2"]
+nonebot-plugin-omikuji = ["nonebot_plugin_omikuji"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "tab"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
+addopts = "-v --strict-markers"
+

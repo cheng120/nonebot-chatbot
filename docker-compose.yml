@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  nonebot:
+    build: .
+    container_name: nonebot-chatbot
+    restart: always
+    volumes:
+      - ./configs:/app/configs
+      - ./logs:/app/logs
+      - ./data:/app/data
+      - ./src/plugins:/app/src/plugins
+    environment:
+      - DATABASE_TYPE=sqlite
+    networks:
+      - nonebot-network
+    # 如果需要暴露端口，取消下面的注释
+    # ports:
+    #   - "8080:8080"
+
+networks:
+  nonebot-network:
+    driver: bridge
+
