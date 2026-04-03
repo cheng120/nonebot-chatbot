@@ -5,12 +5,12 @@ from datetime import datetime, timedelta
 
 from nonebot import logger
 try:
-    from nonebot_plugin_suggarchat.API import config_manager, tools_caller
-    from nonebot_plugin_suggarchat.utils.models import Message
+    from src.plugins.suggarchat.API import config_manager, tools_caller
+    from src.plugins.suggarchat.utils.models import Message
 except Exception:
-    # SuggarChat / Amrita 在部分环境下可能会因为 FastAPI 生命周期报错。
-    # 此处把依赖变为可选，避免 omikuji 顶层导入失败。
     config_manager = None
+    tools_caller = None
+    Message = None
     tools_caller = None
     Message = None
 

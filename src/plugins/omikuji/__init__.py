@@ -19,17 +19,17 @@ ToolsManager = None
 TOOL_DATA = None
 
 # SuggarChat / Amrita 的 WebUI 在部分环境下可能会因为 FastAPI 生命周期问题加载失败。
-# 御神签的“聊天抽签”属于可选功能：即使 SuggarChat 不可用，也应保证 `omikuji` 指令本体可用。
+# 御神签的"聊天抽签"属于可选功能：即使 SuggarChat 不可用，也应保证 `omikuji` 指令本体可用。
 try:
-	require("nonebot_plugin_suggarchat")
-	from nonebot_plugin_suggarchat.API import Menu as _Menu, ToolsManager as _ToolsManager
+	require("suggarchat")  # 加载本地 suggarchat 插件（已注册为 suggarchat）
+	from src.plugins.suggarchat.API import Menu as _Menu, ToolsManager as _ToolsManager
 	from .llm_tool import TOOL_DATA as _TOOL_DATA
 	Menu = _Menu
 	ToolsManager = _ToolsManager
 	TOOL_DATA = _TOOL_DATA
 	_HAS_SUGGARCHAT = True
 except Exception as e:
-	logger.warning(f"omikuji：nonebot_plugin_suggarchat 加载失败，将跳过聊天抽签工具注册：{e}")
+	logger.warning(f"omikuji：suggarchat 加载失败，将跳过聊天抽签工具注册：{e}")
 
 __plugin_meta__ = PluginMetadata(
     name="御神签",

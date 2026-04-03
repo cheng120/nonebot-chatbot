@@ -1,5 +1,6 @@
 # SuggarChat 使用 LongCat 模型（models/longcat.json）
 preset = "longcat"
+enable = true
 
 [default_preset]
 model = "LongCat-Flash-Thinking"

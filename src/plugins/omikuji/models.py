@@ -4,15 +4,13 @@ import random
 from typing import Literal
 
 try:
-    from nonebot_plugin_suggarchat.API import (
+    from src.plugins.suggarchat.API import (
         FunctionDefinitionSchema,
         FunctionParametersSchema,
         FunctionPropertySchema,
         ToolFunctionSchema,
     )
 except Exception:
-    # SuggarChat / Amrita 在某些环境下可能因 FastAPI 生命周期问题报错，导致 omikuji 顶层导入失败。
-    # 这里将 schema 构建依赖变为可选：当不可用时，后续会降级为本地生成。
     FunctionDefinitionSchema = None
     FunctionParametersSchema = None
     FunctionPropertySchema = None

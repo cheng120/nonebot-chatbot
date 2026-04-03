@@ -2,12 +2,19 @@ import typing
 
 from nonebot import get_bot, logger
 from nonebot.adapters.onebot.v11 import MessageEvent
-from nonebot_plugin_suggarchat.API import (
-    ToolContext,
-    ToolData,
-)
+try:
+    from src.plugins.suggarchat.API import (
+        ToolContext,
+        ToolData,
+    )
+except ImportError:
+    class ToolContext:
+        pass
+    class ToolData:
+        def __init__(self, **kwargs):
+            pass
 
-from nonebot_plugin_omikuji.cache import cache_omikuji, get_cached_omikuji
+from .cache import cache_omikuji, get_cached_omikuji
 
 from .config import get_config
 from .models import FUNC_META, OmikujiData
