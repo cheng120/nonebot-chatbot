@@ -5,12 +5,13 @@ from datetime import datetime, timedelta
 
 from nonebot import logger
 try:
-    from src.plugins.suggarchat.API import config_manager, tools_caller
+    from src.plugins.suggarchat.API import tools_caller
+    from src.plugins.suggarchat.config import ConfigManager as _SuggarConfigManager
     from src.plugins.suggarchat.utils.models import Message
-except Exception:
-    config_manager = None
-    tools_caller = None
-    Message = None
+    logger.info("omikuji: 成功加载 suggarchat tools_caller")
+except Exception as e:
+    logger.warning(f"omikuji: 无法加载 suggarchat，将使用本地降级生成: {e}")
+    _SuggarConfigManager = None
     tools_caller = None
     Message = None
 
@@ -75,7 +76,7 @@ async def generate_omikuji(
     # SuggarChat 不可用时，降级为本地生成，保证命令可用。
     if (
         tools_caller is None
-        or config_manager is None
+        or _SuggarConfigManager is None
         or Message is None
         or OMIKUJI_SCHEMA_META is None
     ):
@@ -110,7 +111,7 @@ async def generate_omikuji(
 
     system_prompt = Message.model_validate(
         deepcopy(
-            config_manager.group_train if is_group else config_manager.private_train
+            _SuggarConfigManager().group_train if is_group else _SuggarConfigManager().private_train
         )
     )
     assert isinstance(system_prompt.content, str)
