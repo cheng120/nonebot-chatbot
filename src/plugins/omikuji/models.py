@@ -10,7 +10,9 @@ try:
         FunctionPropertySchema,
         ToolFunctionSchema,
     )
-except Exception:
+except Exception as _e:
+    import sys
+    print(f"[omikuji models] 导入 suggarchat schema 失败: {_e}", file=sys.stderr)
     FunctionDefinitionSchema = None
     FunctionParametersSchema = None
     FunctionPropertySchema = None
