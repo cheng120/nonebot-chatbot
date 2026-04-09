@@ -128,6 +128,13 @@ async def generate_omikuji(
     args = json.loads(data.tool_calls[0].function.arguments)
     args["level"] = level
     args["theme"] = theme
+    # 补全 AI 可能遗漏的字段，避免 ValidationError
+    args.setdefault("end", args.get("intro", "愿好运随你行动而来。"))
+    args.setdefault("intro", "「命运之门已开启，签文为你带来启示。」")
+    args.setdefault("sign_number", str(random.randint(1, 99)))
+    args.setdefault("divine_title", "天启之名")
+    args.setdefault("maxim", "「顺势而行，静待花开。」")
+    args.setdefault("sections", [{"name": "启示", "content": f"{theme}之路，一步一念皆有意义。"}])
     model = OmikujiData.model_validate(args)
     if level:
         model.level = level
